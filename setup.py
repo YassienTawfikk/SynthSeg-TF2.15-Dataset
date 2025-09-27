@@ -10,7 +10,7 @@ if (python_version != '3.11'):
 
 else:
 
-    with open('requirements'.txt') as f:
+    with open('requirements.txt') as f:
         required_packages = [line.strip() for line in f.readlines()]
 
     print(setuptools.find_packages())
