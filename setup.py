@@ -3,11 +3,6 @@
 import sys
 import setuptools
 
-python_version = sys.version[:3]
-
-if (python_version != '3.11'):
-    raise Exception('Setup.py only works with python version 3.11, not {}'.format(python_version))
-
 else:
 
     with open('requirements.txt') as f:
