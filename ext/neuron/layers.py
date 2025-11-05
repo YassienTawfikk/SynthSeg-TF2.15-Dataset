@@ -18,7 +18,7 @@ License: GPLv3
 
 # third party
 import tensorflow as tf
-from keras import backend as K
+# from keras import backend as K
 from keras.layers import Layer
 from copy import deepcopy
 
@@ -134,9 +134,9 @@ class SpatialTransformer(Layer):
         trf = inputs[1:]
 
         # necessary for multi_gpu models...
-        vol = K.reshape(vol, [-1, *self.inshape[0][1:]])
+        vol = tf.reshape(vol, [-1, *self.inshape[0][1:]])
         for i in range(len(trf)):
-            trf[i] = K.reshape(trf[i], [-1, *self.inshape[i+1][1:]])
+            trf[i] = tf.reshape(trf[i], [-1, *self.inshape[i+1][1:]])
 
         # reorder transforms, non-linear first and affine second
         ind_nonlinear_linear = [i[0] for i in sorted(enumerate(self.is_affine), key=lambda x:x[1])]
@@ -244,7 +244,7 @@ class VecInt(Layer):
         loc_shift = inputs[0]
 
         # necessary for multi_gpu models...
-        loc_shift = K.reshape(loc_shift, [-1, *self.inshape[1:]])
+        loc_shift = tf.reshape(loc_shift, [-1, *self.inshape[1:]])
 
         # prepare location shift
         if self.indexing == 'xy':  # shift the first two dimensions
@@ -372,7 +372,7 @@ class Resize(Layer):
             vol = inputs
 
         # necessary for multi_gpu models...
-        vol = K.reshape(vol, [-1, *self.inshape[1:]])
+        vol = tf.reshape(vol, [-1, *self.inshape[1:]])
 
         # set value of missing size or zoom_factor
         if not any(self.zoom_factor0):
