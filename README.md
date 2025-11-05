@@ -1,12 +1,29 @@
 # SynthSeg
 
+# SynthSeg
+
 > **Note about this fork**
 >
-> This repository is a fork of [Photo-SynthSeg](https://github.com/MGH-LEMoN/Photo-SynthSeg), which itself is a fork of the original [SynthSeg](https://github.com/BBillot/SynthSeg). This version adds the following enhancements:
-> 
-> 1. **Modern Python and TensorFlow Support**: Compatibility with Python 3.11 and TensorFlow 2.15
-> 2. **CSV-based Batch Processing**: Process multiple images defined in a CSV file with a single command
-> 3. **Checkpointing**: Automatically resume processing from where it left off if interrupted
+> This repository represents a further evolution in the SynthSeg lineage, forked from the [Gabriele Lozupone](https://github.com/GabrieleLozupone) version (gabrielelozupone/synthseg-tf2.15-dataset), which itself is a fork of [Photo-SynthSeg](https://github.com/MGH-LEMoN/Photo-SynthSeg), derived from the original [SynthSeg](https://github.com/BBillot/SynthSeg).
+>
+> **Enhancements from Gabriele Lozupone's fork:**
+> 1. **Modern Python and TensorFlow Support**: Compatibility with Python 3.11 and TensorFlow 2.15.
+> 2. **CSV-based Batch Processing**: Process multiple images defined in a CSV file with a single command.
+> 3. **Checkpointing**: Automatically resume processing from where it left off if interrupted.
+>
+> **Enhancement in this further fork:**
+> * **Keras/TensorFlow API Compatibility Fix:** Patched the internal `ext/neuron/layers.py` utility to replace the deprecated `K.reshape` calls with `tf.reshape`. This ensures the generative pipeline (`BrainGenerator`) executes without `AttributeError` in TensorFlow 2.15+ environments.
+
+SynthSeg, is the first deep learning tool for segmentation of brain scans of
+any contrast and resolution. SynthSeg works out-of-the-box without any retraining, and is robust to:
+- any contrast
+- any resolution up to 10mm slice spacing
+- a wide array of populations: from young and healthy to ageing and diseased
+- scans with or without preprocessing: bias field correction, skull stripping, normalisation, etc.
+- white matter lesions.
+\
+\
+![Generation examples](data/README_figures/segmentations.png)
 
 SynthSeg, is the first deep learning tool for segmentation of brain scans of
 any contrast and resolution. SynthSeg works out-of-the-box without any retraining, and is robust to:
