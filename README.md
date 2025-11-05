@@ -1,7 +1,5 @@
 # SynthSeg
 
-# SynthSeg
-
 > **Note about this fork**
 >
 > This repository represents a further evolution in the SynthSeg lineage, forked from the [Gabriele Lozupone](https://github.com/GabrieleLozupone) version (gabrielelozupone/synthseg-tf2.15-dataset), which itself is a fork of [Photo-SynthSeg](https://github.com/MGH-LEMoN/Photo-SynthSeg), derived from the original [SynthSeg](https://github.com/BBillot/SynthSeg).
